@@ -16,7 +16,7 @@ wss.on('connection', (ws: WebSocket) => {
     await roadmapController.handleWebSocketConnection(ws, userPrompt);
   });
 
-  ws.send('Connected to WebSocket server');
+  // ws.send('Connected to WebSocket server');
 });
 
 roadmapRouter.get('/gpt', (req, res) => {

@@ -16,6 +16,7 @@ export function Chat() {
       setMessage('');
     }
   };
+
   return (
     <div className="flex flex-col h-screen">
       <header className="bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between shadow-sm">
@@ -28,69 +29,6 @@ export function Chat() {
           <span className="text-sm">AI Assistant</span>
         </div>
       </header>
-      {/* <div className="flex-1 overflow-auto p-6 space-y-4">
-        <div className="flex items-start gap-4">
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>You</AvatarFallback>
-          </Avatar>
-          <div className="bg-muted rounded-lg p-4 max-w-[75%]">
-            <p>Hello, how can I help you today?</p>
-          </div>
-        </div>
-        <div className="flex items-start gap-4 justify-end">
-          <div className="bg-primary text-primary-foreground rounded-lg p-4 max-w-[75%]">
-            <p>I'm doing great, thanks for asking! How can I assist you today?</p>
-          </div>
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>AI</AvatarFallback>
-          </Avatar>
-        </div>
-        <div className="flex items-start gap-4">
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>You</AvatarFallback>
-          </Avatar>
-          <div className="bg-muted rounded-lg p-4 max-w-[75%]">
-            <p>I'm looking for some advice on a project I'm working on. Can you help me?</p>
-          </div>
-        </div>
-        <div className="flex items-start gap-4 justify-end">
-          <div className="bg-primary text-primary-foreground rounded-lg p-4 max-w-[75%]">
-            <p>Absolutely, I'd be happy to help. What kind of project are you working on?</p>
-          </div>
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>AI</AvatarFallback>
-          </Avatar>
-        </div>
-        <div className="flex items-start gap-4">
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>You</AvatarFallback>
-          </Avatar>
-          <div className="bg-muted rounded-lg p-4 max-w-[75%]">
-            <p>
-              I'm working on a new website for my small business. I'm not very experienced with web development, so I
-              could use some guidance.
-            </p>
-          </div> */}
-        {/* </div> */}
-        {/* <div className="flex items-start gap-4 justify-end">
-          <div className="bg-primary text-primary-foreground rounded-lg p-4 max-w-[75%]">
-            <div className="flex items-center gap-2">
-              <LoaderIcon className="w-5 h-5 animate-spin" />
-              <span>Generating response...</span>
-            </div>
-          </div>
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>AI</AvatarFallback>
-          </Avatar>
-        </div>
-      </div> */}
-
       <div className="flex-1 overflow-auto p-6 space-y-4">
         {messages.map((message, index) => (
           <div className={`flex items-start gap-4 ${index % 2 === 0 ? '' : 'justify-end'}`} key={index}>

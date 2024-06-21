@@ -14,8 +14,17 @@ const useWebSocket = (url: string) => {
 
     webSocket.onmessage = (event) => {
       try{
-      const data = event.data
-      setMessages((prevMessages) => [...prevMessages, data]);
+        const data = event.data;
+        setMessages((prevMessages) => {
+          const lastMessage = prevMessages[prevMessages.length - 1];
+          if (data.startsWith(lastMessage)) {
+            // Replace last message with new one
+            return [...prevMessages.slice(0, -1), data];
+          } else {
+            // Append new message to end of array
+            return [...prevMessages, data];
+          }
+        });
       }
       catch(error) {
         console.log(error)
@@ -40,7 +49,7 @@ const useWebSocket = (url: string) => {
   const sendMessage = (message: string) => {
     if (webSocketRef.current?.readyState === WebSocket.OPEN) {
       webSocketRef.current.send(message);
-      setMessages([...messages, message]);
+      setMessages([...messages, message])
     } else {
       console.error('WebSocket is not open');
     }
