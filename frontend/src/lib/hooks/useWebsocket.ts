@@ -13,8 +13,13 @@ const useWebSocket = (url: string) => {
     };
 
     webSocket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
+      try{
+      const data = event.data
       setMessages((prevMessages) => [...prevMessages, data]);
+      }
+      catch(error) {
+        console.log(error)
+      }
     };
 
     webSocket.onerror = (error) => {
@@ -35,6 +40,7 @@ const useWebSocket = (url: string) => {
   const sendMessage = (message: string) => {
     if (webSocketRef.current?.readyState === WebSocket.OPEN) {
       webSocketRef.current.send(message);
+      setMessages([...messages, message]);
     } else {
       console.error('WebSocket is not open');
     }

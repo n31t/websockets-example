@@ -6,7 +6,7 @@ import http from 'http';
 import { wss } from './roadmap/roadmap.router';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3939;
 
 app.use(logger);
 app.use(express.json());
@@ -17,6 +17,7 @@ const server = http.createServer(app);
 // Handle WebSocket connections with origin validation
 server.on('upgrade', (request, socket, head) => {
   const origin = request.headers.origin;
+  console.log(`Origin: ${origin}`);
   // Validate the origin before proceeding
   if (origin === 'http://localhost:3000') {
     wss.handleUpgrade(request, socket, head, (ws) => {

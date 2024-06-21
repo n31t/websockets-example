@@ -10,7 +10,7 @@ class roadmapController {
   async handleWebSocketConnection(ws: WebSocket, userPrompt: string) {
     try {
       await this.roadmapService.create(userPrompt, (data) => {
-        ws.send(JSON.stringify(data));
+        ws.send(data);
       });
     } catch (error) {
       ws.send(JSON.stringify({ error: 'Failed to process OpenAI stream' }));

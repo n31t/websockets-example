@@ -19,7 +19,7 @@ wss.on('connection', (ws: WebSocket) => {
   ws.send('Connected to WebSocket server');
 });
 
-roadmapRouter.get('/roadmaps', (req, res) => {
+roadmapRouter.get('/gpt', (req, res) => {
   res.send('Roadmap API is running');
 });
 
