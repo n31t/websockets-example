@@ -7,7 +7,7 @@ import useWebSocket from '@/lib/hooks/useWebsocket';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const { messages, sendMessage } = useWebSocket('ws://localhost:3939');
+  const { messages, sendMessage } = useWebSocket('ws://websockets-example-1.onrender.com');
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
