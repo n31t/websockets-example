@@ -7,7 +7,7 @@ import useWebSocket from "@/lib/hooks/useWebsocket";
 import { useState } from "react";
 
 export function Chat() {
-  const { messages, sendMessage } = useWebSocket('ws://websockets-example-1.onrender.com');
+  const { messages, sendMessage } = useWebSocket('wss://websockets-example-1.onrender.com');
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
